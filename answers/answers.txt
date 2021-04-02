@@ -1,0 +1,26 @@
+PART 2
+select name from types;
+
+select * from pokemons
+    -> where id = 45;
+
+select count(name)
+    -> from pokemons;
+
+select count(name)
+    -> from types;
+
+select count(secondary_type)
+    -> from pokemons;
+
+PART 3
+select primary_type from pokemons;
+
+select secondary_type from pokemons
+    -> where name = 'Rufflet';
+
+select pokemon_trainer.trainerID, pokemons.name, pokemon_trainer.pokemon_id
+    -> from pokemon_trainer
+    -> left join pokemons
+    -> on pokemons.id = pokemon_trainer.pokemon_id
+    -> where pokemon_trainer.trainerID = 303;

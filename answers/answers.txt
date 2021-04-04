@@ -24,3 +24,27 @@ select pokemon_trainer.trainerID, pokemons.name, pokemon_trainer.pokemon_id
     -> left join pokemons
     -> on pokemons.id = pokemon_trainer.pokemon_id
     -> where pokemon_trainer.trainerID = 303;
+
+    -> from pokemons
+    -> where secondary_type = 7;
+
+select count(name), primary_type
+    -> from pokemons
+    -> group by primary_type;
+
+select count(pokemon_id), trainerID
+    -> from pokemon_trainer
+    -> where pokelevel >= 100
+    -> group by trainerID;
+
+select count(pokemon_id)
+    -> from (
+    -> select pokemon_id from pokemon_trainer
+    -> group by pokemon_id having count(*) = 1)
+    -> as ONLY_ONCE;
+
+
+select trainerID, SUM(pokelevel) AS totalLevel
+from pokemon_trainer
+group by trainerID
+order by SUM(pokelevel) desc;

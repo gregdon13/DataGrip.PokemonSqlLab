@@ -1,0 +1,18 @@
+All types of pokemon
+select name from types;
+
+Name of pokemon with id of 45
+select * from pokemons
+    -> where id = 45;
+
+How many pokemon
+select count(name)
+    -> from pokemons;
+
+How many types
+select count(name)
+    -> from types;
+
+How many pokemon have secondary
+select count(secondary_type)
+    -> from pokemons;

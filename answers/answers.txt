@@ -37,6 +37,8 @@ select count(pokemon_id), trainerID
     -> where pokelevel >= 100
     -> group by trainerID;
 
+
+
 select count(pokemon_id)
     -> from (
     -> select pokemon_id from pokemon_trainer
@@ -47,3 +49,9 @@ select name, primary_type, secondary_type, pokelevel, trainerName
     from pokemons, pokemon_trainer, trainers
     where pokemon_trainer.pokemon_id = pokemons.id AND pokemon_trainer.trainerID = trainers.trainerID
     limit 20;
+
+select p.name, t1.name as t1, t2.name as t2
+from pokemons p
+left join types t1 on p.primary_type = t1.id
+left join types t2 on p.secondary_type = t2.id;
+

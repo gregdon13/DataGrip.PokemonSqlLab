@@ -1,0 +1,13 @@
+select p.name as "PokemonName",
+       trainers.trainername as "TrainerName",
+       pokemon_trainer.pokelevel as "Level",
+        t.name as "Primary",
+       ty.name as "Secondary",
+        AVG(pokelevel) as "Score"
+from trainers
+    join pokemon_trainer on pokemon_trainer.trainerID = trainers.trainerID
+    join pokemons p on pokemon_trainer.pokemon_id = p.id
+    join types t on p.primary_type = t.id
+    join types ty on p.secondary_type = ty.id
+group by p.name, trainers.trainername, pokemon_trainer.pokelevel, t.name, ty.name
+order by AVG(pokelevel) desc;

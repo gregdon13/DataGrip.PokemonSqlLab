@@ -1,0 +1,9 @@
+select name from types;
+
+select * from pokemons where id=45;
+
+select count(id) from pokemons;
+
+select count(id) from types;
+
+select count(secondary_type) from pokemons;
